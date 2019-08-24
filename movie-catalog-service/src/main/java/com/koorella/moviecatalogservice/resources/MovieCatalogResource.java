@@ -26,6 +26,11 @@ public class MovieCatalogResource {
 	@Autowired
 	private WebClient.Builder builder;
 
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	@RequestMapping("/{userId}")
 	@HystrixCommand(fallbackMethod = "getFallbackCatalog")
 	public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
